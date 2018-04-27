@@ -52,6 +52,10 @@ public class Escola {
 		this.professores = professores;
 		this.alunos = alunos;
 	}
+	
+	public Escola(String nome){
+		this.nome = nome;
+	}
 
 	public Long getId() {
 		return id;
