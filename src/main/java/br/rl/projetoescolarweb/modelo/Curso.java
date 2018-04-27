@@ -49,6 +49,10 @@ public class Curso {
 		this.alunos = alunos;
 	}
 	
+	public Curso(String nome) {
+		this.nome = nome;
+	}
+	
 	public Curso(Long id, String nome) {
 		super();
 		this.id = id;
