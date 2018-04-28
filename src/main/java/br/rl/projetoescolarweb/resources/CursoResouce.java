@@ -23,21 +23,21 @@ public class CursoResouce {
 		
 		Curso curso = new Curso();
 		
-		curso.setNome("Luíz");
+		curso.setNome("Informática Básica");
 				
 		cursoRepository.save(curso);
 		
 		return "ok";
 	}
 	
-	@RequestMapping(value ="{id}/detalhes", method = RequestMethod.GET)
+	@RequestMapping(value = "{id}/detalhes", method = RequestMethod.GET)
 	
 	public Curso buscar(@PathVariable("id") Long id) {
 		
 		return cursoRepository.getOne(id);
 	}
 	
-	@RequestMapping(value ="listar/todos", method=RequestMethod.GET)
+	@RequestMapping(value = "listar/todos", method=RequestMethod.GET)
 	
 	public List<Curso> listar(){
 		
