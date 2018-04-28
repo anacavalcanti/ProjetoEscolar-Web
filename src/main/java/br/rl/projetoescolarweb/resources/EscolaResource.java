@@ -39,11 +39,11 @@ public class EscolaResource {
 			return escolaRepository.findAll();
 		}
 		
-		@RequestMapping(value="pesquisar", method = RequestMethod.GET)
+		@RequestMapping(value = "pesquisar", method = RequestMethod.GET)
 		
 		public List<Escola> pesquisar(
 				
-			@RequestParam(name="nome", defaultValue = "ALL")String nome){
+			@RequestParam(name = "nome", defaultValue = "ALL")String nome){
 			
 			return escolaRepository.findByNome(nome);
 		}
