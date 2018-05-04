@@ -49,8 +49,6 @@ public class Professor{
 		this.id = id;
 	}
 
-
-
 	public String getCpf() {
 		return cpf;
 	}
