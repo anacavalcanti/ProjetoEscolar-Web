@@ -24,7 +24,7 @@ import br.rl.projetoescolarweb.modelo.Curso;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class CursoResourceTest {
 	
-	final String BASE_PATH = "http://localhost:8080/curso";
+	final String BASE_PATH = "http://localhost:8080/api/curso";
 	
 	@Autowired
 	private CursoDao cursoRepository;
@@ -38,7 +38,20 @@ public class CursoResourceTest {
 		restTemplate = new RestTemplate();
 		cursoRepository.deleteAll();
 		
+		Curso informatica  = new Curso();
+		informatica.setNome("Informática básica");
 		
+		cursoRepository.save(informatica);
+		
+		Curso logica  = new Curso();
+		logica.setNome("Lógica de Programação");
+		
+		cursoRepository.save(logica);
+		
+		Curso web = new Curso();
+		web.setNome("Programação Web");
+		
+		cursoRepository.save(web);
 		
 	}
 
