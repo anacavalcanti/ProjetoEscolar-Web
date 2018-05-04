@@ -11,7 +11,7 @@ import br.rl.projetoescolarweb.dao.ProfessorDao;
 import br.rl.projetoescolarweb.modelo.Professor;
 
 @RestController
-@RequestMapping("/professor")
+@RequestMapping("/api/professor")
 public class ProfessorResouce {
 	
 	@Autowired

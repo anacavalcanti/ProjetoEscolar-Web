@@ -11,7 +11,7 @@ import br.rl.projetoescolarweb.dao.EscolaDao;
 import br.rl.projetoescolarweb.modelo.Escola;
 
 @RestController
-@RequestMapping("/escola")
+@RequestMapping("/api/escola")
 public class EscolaResource {
 
 		@Autowired

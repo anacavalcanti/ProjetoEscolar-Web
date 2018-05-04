@@ -13,7 +13,7 @@ import br.rl.projetoescolarweb.dao.DisciplinaDao;
 import br.rl.projetoescolarweb.modelo.Disciplina;
 
 @RestController
-@RequestMapping("/disciplina")
+@RequestMapping("/api/disciplina")
 public class DisciplinaResouce {
 	
 	@Autowired

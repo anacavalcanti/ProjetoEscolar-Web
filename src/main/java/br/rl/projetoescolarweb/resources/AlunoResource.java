@@ -12,7 +12,7 @@ import br.rl.projetoescolarweb.modelo.Aluno;
 import br.rl.projetoescolarweb.modelo.Endereco;
 
 @RestController
-@RequestMapping("/aluno")
+@RequestMapping("/api/aluno")
 public class AlunoResource {
 	
 	@Autowired
@@ -38,7 +38,7 @@ public class AlunoResource {
 		return alunoRepository.getOne(id);
 	}
 	
-	@RequestMapping(value = "/listar", method=RequestMethod.GET)
+	@RequestMapping(value = "/listar/todos", method=RequestMethod.GET)
 	
 	public List<Aluno> listar(){
 		return alunoRepository.findAll();
