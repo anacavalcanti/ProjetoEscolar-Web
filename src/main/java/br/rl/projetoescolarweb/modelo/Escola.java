@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table (name = "escola")
 public class Escola {
@@ -25,18 +27,21 @@ public class Escola {
 	@Column(length = 100, unique = true, name = "nome_escola", nullable = false)
 	private String nome;
 	
+	@JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name="escola_curso",
 	joinColumns = {
 			@JoinColumn(name = "id_escola", referencedColumnName = "id")},
 	inverseJoinColumns = {
 			@JoinColumn(name = "id_curso", referencedColumnName = "id")})
-	private Set<Curso> curso = new HashSet<>();;
+	private Set<Curso> cursos = new HashSet<>();;
 	 
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
 	@JoinColumn(name ="nome_escola")
 	private Set<Professor> professores = new HashSet<>();;
 	
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
 	@JoinColumn(name = "nome_escola")
 	private Set<Aluno> alunos = new HashSet<>();
@@ -45,18 +50,14 @@ public class Escola {
 		super();
 	}
 	
-	public Escola(String nome, Set<Curso> curso, Set<Professor> professores, Set<Aluno> alunos) {
+	public Escola(String nome, Set<Curso> cursos, Set<Professor> professores, Set<Aluno> alunos) {
 		super();
 		this.nome = nome;
-		this.curso = curso;
+		this.cursos = cursos;
 		this.professores = professores;
 		this.alunos = alunos;
 	}
 	
-	public Escola(String nome){
-		this.nome = nome;
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -73,12 +74,12 @@ public class Escola {
 		this.nome = nome;
 	}
 
-	public Set<Curso> getCurso() {
-		return curso;
+	public Set<Curso> getCursos() {
+		return cursos;
 	}
 
-	public void setCurso(Set<Curso> curso) {
-		this.curso = curso;
+	public void setCursos(Set<Curso> cursos) {
+		this.cursos = cursos;
 	}
 
 	public Set<Professor> getProfessores() {
@@ -133,18 +134,18 @@ public class Escola {
 		}		
 	}
 
-	public boolean adicionarCurso(Curso cursos) {
-		if(curso.contains(cursos)) {
+	public boolean adicionarCurso(Curso curso) {
+		if(cursos.contains(curso)) {
 			return false;
 		}else {
-			curso.add(cursos);
+			cursos.add(curso);
 			return true;
 		}
 	}
 	
-	public boolean removerCurso(Curso cursos) {
-		if(curso.contains(cursos)) {
-			curso.remove(cursos);
+	public boolean removerCurso(Curso curso) {
+		if(cursos.contains(curso)) {
+			cursos.remove(curso);
 			return true;
 		}else {
 			return false;

@@ -15,6 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table (name="curso")
 public class Curso {
@@ -25,6 +27,7 @@ public class Curso {
 	@Column(length = 60, unique = true, name = "nome_curso", nullable = false)
 	private String nome;
 	
+	@JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name="curso_disciplina",
 		joinColumns = {
@@ -33,6 +36,7 @@ public class Curso {
 			@JoinColumn(name = "id_disciplina", referencedColumnName = "id")})
 	private Set<Disciplina> disciplinas = new HashSet<>();
 	
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
 	@JoinColumn(name = "id_curso")
 	private Set<Aluno> alunos = new HashSet<>();

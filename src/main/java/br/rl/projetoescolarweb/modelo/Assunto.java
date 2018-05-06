@@ -13,7 +13,7 @@ public class Assunto {
 	@GeneratedValue
 	private Long id;
 	
-	@Column(length = 100, nullable = false)
+	@Column(length = 100, unique = true, nullable = false)
 	private String nome;
 	
 	public Assunto() {
