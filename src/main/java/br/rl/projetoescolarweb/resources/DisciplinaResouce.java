@@ -36,7 +36,7 @@ public class DisciplinaResouce {
 		return disciplinaRepository.getOne(id);
 	}
 	
-	@RequestMapping(value = "listar/todos", method=RequestMethod.GET)
+	@RequestMapping(value = "listar/todas", method=RequestMethod.GET)
 	
 	public List<Disciplina> listar(){
 		
