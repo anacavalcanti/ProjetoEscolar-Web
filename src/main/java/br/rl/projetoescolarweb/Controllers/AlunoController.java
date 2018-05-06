@@ -36,7 +36,7 @@ public class AlunoController {
 		return "aluno/list";
 	}
 	
-	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)
+	@RequestMapping(value = {"/new"}, method = RequestMethod.GET)
 	public String newAluno(ModelMap model) {
 		
 		Aluno aluno = new Aluno();
@@ -46,7 +46,7 @@ public class AlunoController {
 		return "aluno/form";
 	}
 	
-	@RequestMapping(value = { "/new" }, method = RequestMethod.POST)
+	@RequestMapping(value = {"/new"}, method = RequestMethod.POST)
 	public String saveAluno(@Valid @ModelAttribute Aluno aluno, BindingResult result,
 							ModelMap model) {
 		if (result.hasErrors()) {
@@ -60,7 +60,7 @@ public class AlunoController {
 		return "redirect:/aluno/list";
 	}
 	
-	@RequestMapping(value = { "/edit-{id}-aluno" }, method = RequestMethod.GET)
+	@RequestMapping(value = {"/edit-{id}-aluno"}, method = RequestMethod.GET)
 	public String editAluno(@PathVariable("id") Long id, ModelMap model) {
 		Aluno aluno = alunoRepository.getOne(id);
 		model.addAttribute("aluno", aluno);
@@ -68,7 +68,7 @@ public class AlunoController {
 		return "aluno/form";
 	}
 	
-	@RequestMapping(value = { "/edit-{id}-aluno" }, method = RequestMethod.POST)
+	@RequestMapping(value = {"/edit-{id}-aluno"}, method = RequestMethod.POST)
 	public String updateAluno(@Valid Aluno aluno, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
 			return "aluno/form";
