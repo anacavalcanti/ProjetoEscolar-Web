@@ -37,7 +37,7 @@ public class AlunoResourceTest {
 	public void setUp() {
 		restTemplate = new RestTemplate();
 		alunoRepository.deleteAll();
-		//inserir algumas escolas
+		
 		Aluno pedro = new Aluno();
 		pedro.setNome("Pedro");
 		pedro.setMatricula("222");
