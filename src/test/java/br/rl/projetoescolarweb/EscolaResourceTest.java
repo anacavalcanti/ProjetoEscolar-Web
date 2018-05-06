@@ -39,14 +39,22 @@ public class EscolaResourceTest {
 		restTemplate = new RestTemplate();
 		escolaRepository.deleteAll();
 		//inserir algumas escolas
-		escolaRepository.save(new Escola("IFAL Rio Largo"));
-		escolaRepository.save(new Escola("IFAL Satuba"));
-		escolaRepository.save(new Escola("IFAL Maceió"));
+		Escola escola = new Escola();
+		escola.setNome("IFAL Rio Largo");
+		escolaRepository.save(escola);
+		
+		Escola escola1 = new Escola();
+		escola1.setNome("IFAL Satuba");
+		escolaRepository.save(escola1);
+		
+		Escola escola2 = new Escola();
+		escola2.setNome("IFAL Maceió");
+		escolaRepository.save(escola2);	
 	}
 
 	@Test
 	public void deveFuncionarAListagemDeTodasAsEscolas() throws JsonParseException, JsonMappingException, IOException {
-		String response = restTemplate.getForObject(BASE_PATH + "/listar/todos",String.class);
+		String response = restTemplate.getForObject(BASE_PATH + "/listar/todas",String.class);
 		
 		List<Escola>  escolas = MAPPER.readValue(response,
 				MAPPER.getTypeFactory().constructCollectionLikeType(List.class, Escola.class));
