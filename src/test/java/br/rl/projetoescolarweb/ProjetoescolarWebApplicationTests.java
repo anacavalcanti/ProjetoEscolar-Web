@@ -141,7 +141,7 @@ public class ProjetoescolarWebApplicationTests {
 		
 		Aluno aluno = alunoRepository.getOne(7L);
 		
-		Assunto assunto = assuntoRepository.getOne(4L);
+		Assunto assunto = assuntoRepository.findAll().get(0);
 		
 		Disciplina disciplina = new Disciplina();
 		disciplina.setNome("PIU");
