@@ -25,7 +25,6 @@
 					      	<tr>
 						        <th>Id</th>
 						        <th>Nome</th>
-						        <th>Idade</th>
 						        <th>Matricula</th>
 						         <th>Ação</th>
 					      	</tr>
@@ -34,7 +33,6 @@
 					    	<tr th:each="a : ${alunosList}">
 						        <td th:text="${a.id}"></td>
 						        <td th:text="${a.nome}"></td>
-						        <td th:text="${a.idade}"></td>
 						        <td th:text="${a.matricula}"></td>
 						        <td></td>
 					      	</tr>
