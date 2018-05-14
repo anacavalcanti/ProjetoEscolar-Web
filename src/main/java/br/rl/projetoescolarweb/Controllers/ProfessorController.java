@@ -24,9 +24,9 @@ public class ProfessorController {
 	
 	@RequestMapping(value = "/list", method=RequestMethod.GET)
 	public String listProfessor(ModelMap model) {
-		List<Professor> professores = professorRepository.findAll();
+		List<Professor> professor = professorRepository.findAll();
 		
-		model.addAttribute("professorList",professores);
+		model.addAttribute("professorList",professor);
 		model.addAttribute("message", "Lista de Professores");
 		
 		System.out.println("list");
