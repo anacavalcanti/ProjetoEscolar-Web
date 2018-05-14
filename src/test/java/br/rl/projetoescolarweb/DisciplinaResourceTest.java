@@ -59,7 +59,7 @@ public class DisciplinaResourceTest {
 	}
 
 	@Test
-	public void deveFuncionarAListagemDeTodasAsNotas() throws JsonParseException, JsonMappingException, IOException {
+	public void deveFuncionarAListagemDeTodasAsDisciplinas() throws JsonParseException, JsonMappingException, IOException {
 		String response = restTemplate.getForObject(BASE_PATH + "/listar/todas",String.class);
 		
 		List<Disciplina>  disciplinas = MAPPER.readValue(response,
